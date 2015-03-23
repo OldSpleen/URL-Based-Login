@@ -86,7 +86,7 @@ function ubl_triger_login(){
 	global $wpdb;
 	
 		
-	$login_hash = ubl_sanitize_variables($_GET['hash']);
+	@$login_hash = ubl_sanitize_variables($_GET['hash']);
 	$query = "SELECT * FROM ".$wpdb->prefix."url_based_login WHERE `login_hash` = '".$login_hash."' AND `status` = 1";
 	$result = ubl_selectquery($query);
 	$username = $result['username'];
